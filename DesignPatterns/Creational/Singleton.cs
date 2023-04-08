@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace DesignPatterns.Creational
 {    
     // Hard to test singleton because instances are carried between tests. Better yet, use DI
-    internal class SingletonEagerInitialized
+    internal sealed class SingletonEagerInitialized
     {
         // Static members are initialized eagerly when class is loaded
         // dotnet guarantees thread safety for static initialization
@@ -24,7 +24,7 @@ namespace DesignPatterns.Creational
         }
 
     }
-    internal class SingletonLazyInitialized
+    internal sealed class SingletonLazyInitialized
     {
         private static SingletonLazyInitialized? _instance;
         private static readonly object _lock = new object();
