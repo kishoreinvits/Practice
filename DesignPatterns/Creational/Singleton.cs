@@ -24,6 +24,7 @@ namespace DesignPatterns.Creational
         }
 
     }
+    // Sealed to prevent non/singleton behavior
     internal sealed class SingletonLazyInitialized
     {
         private static SingletonLazyInitialized? _instance;

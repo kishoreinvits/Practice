@@ -13,7 +13,7 @@ builder.Services.AddTransient<ITransient, Transient>();
 builder.Services.AddScoped<IScoped, Scoped>();
 
 // Let tester be created as transient
-builder.Services.AddTransient<ITester, Tester>();
+builder.Services.AddTransient<IDILifetimeTester, DILifetimeTester>();
 
 var app = builder.Build();
 
@@ -27,7 +27,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 
-app.MapGet("/test", (ISingleton singleton, IScoped scoped, ITransient transient, ITester tester) =>
+app.MapGet("/test", (ISingleton singleton, IScoped scoped, ITransient transient, IDILifetimeTester tester) =>
 {
     var hashCodesFromTester = tester.GetHashCodes();
     return new
@@ -45,44 +45,3 @@ app.MapGet("/test", (ISingleton singleton, IScoped scoped, ITransient transient,
 });
 
 app.Run();
-
-interface ISingleton { }
-class Singleton : ISingleton { }
-interface ITransient { }
-class Transient : ITransient { }
-interface IScoped { }
-class Scoped : IScoped { }
-interface ITester
-{
-    TesterResult GetHashCodes();
-}
-class Tester : ITester
-{
-    private readonly IScoped scoped;
-    private readonly ISingleton singleton;
-    private readonly ITransient transient;
-
-    public Tester(ISingleton singleton, IScoped scoped, ITransient transient)
-    {
-        this.singleton = singleton;
-        this.transient = transient;
-        this.scoped = scoped;
-    }
-
-    public TesterResult GetHashCodes()
-    {
-        return new TesterResult
-        {
-            singleton = singleton.GetHashCode(),
-            scoped = scoped.GetHashCode(),
-            transient = transient.GetHashCode(),
-        };
-    }
-}
-
-class TesterResult
-{
-    public int singleton { get; set; }
-    public int scoped { get; set; }
-    public int transient { get; set; }
-}
