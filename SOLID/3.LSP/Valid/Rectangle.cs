@@ -1,4 +1,4 @@
-﻿namespace SOLID._3.LSP.Valid
+﻿namespace DesignPrinciples.SOLID._3.LSP.Valid
 {
     public class Rectangle : IShape
     {

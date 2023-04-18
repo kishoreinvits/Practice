@@ -1,4 +1,4 @@
-﻿namespace SOLID._3.LSP.Violated
+﻿namespace DesignPrinciples.SOLID._3.LSP.Violated
 {
     public class Rectangle
     {

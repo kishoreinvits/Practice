@@ -1,4 +1,4 @@
-﻿namespace SOLID._5.DIP.Valid
+﻿namespace DesignPrinciples.SOLID._5.DIP.Valid
 {
     public class Square : IShape
     {

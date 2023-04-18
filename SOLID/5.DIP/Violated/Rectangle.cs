@@ -1,4 +1,4 @@
-﻿namespace SOLID._5.DIP.Violated
+﻿namespace DesignPrinciples.SOLID._5.DIP.Violated
 {
     public class Rectangle
     {

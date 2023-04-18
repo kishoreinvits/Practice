@@ -1,4 +1,4 @@
-﻿namespace SOLID._4.ISP.Violated
+﻿namespace DesignPrinciples.SOLID._4.ISP.Violated
 {
     public class Square : IShape
     {

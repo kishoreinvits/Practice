@@ -1,4 +1,4 @@
-﻿namespace SOLID._2.OCP.Valid
+﻿namespace DesignPrinciples.SOLID._2.OCP.Valid
 {
     public class Rectangle : Shape
     {

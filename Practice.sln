@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SOLID", "SOLID\SOLID.csproj", "{AAF2BD27-D4B3-4A91-B478-9DA7F55E32E0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesignPrinciples.SOLID", "SOLID\DesignPrinciples.SOLID.csproj", "{AAF2BD27-D4B3-4A91-B478-9DA7F55E32E0}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DependencyInjection", "DI\DependencyInjection.csproj", "{708E142E-2339-40C8-96B0-D2B06ACDB9F5}"
 EndProject

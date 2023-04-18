@@ -1,4 +1,4 @@
-﻿namespace SOLID._4.ISP.Valid
+﻿namespace DesignPrinciples.SOLID._4.ISP.Valid
 {
     public interface IHasDimensions
     {
