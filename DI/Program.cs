@@ -1,3 +1,5 @@
+using DependencyInjection;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -13,7 +15,7 @@ builder.Services.AddTransient<ITransient, Transient>();
 builder.Services.AddScoped<IScoped, Scoped>();
 
 // Let tester be created as transient
-builder.Services.AddTransient<IDILifetimeTester, DILifetimeTester>();
+builder.Services.AddTransient<IDiLifetimeTester, DiLifetimeTester>();
 
 var app = builder.Build();
 
@@ -27,20 +29,20 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 
-app.MapGet("/test", (ISingleton singleton, IScoped scoped, ITransient transient, IDILifetimeTester tester) =>
+app.MapGet("/test", (ISingleton singleton, IScoped scoped, ITransient transient, IDiLifetimeTester tester) =>
 {
     var hashCodesFromTester = tester.GetHashCodes();
     return new
     {
-        singletonDescription = "These shall be same betwen requests too",
+        singletonDescription = "These shall be same between requests too",
         singletonFirst = singleton.GetHashCode(),
-        singletonSecond = hashCodesFromTester.singleton,
+        singletonSecond = hashCodesFromTester.Singleton,
         scopedDescription = "These shall be same within a request",
         scopedFirst = scoped.GetHashCode(),
-        scopedSecond = hashCodesFromTester.scoped,
-        transientDescription = "These shall be different everytime even within a request",
+        scopedSecond = hashCodesFromTester.Scoped,
+        transientDescription = "These shall be different every time even within a request",
         transientFirst = transient.GetHashCode(),
-        transientSecond = hashCodesFromTester.transient,
+        transientSecond = hashCodesFromTester.Transient,
     };
 });
 

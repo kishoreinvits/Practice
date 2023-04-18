@@ -1,23 +1,8 @@
-﻿
-// Add services to the container.
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+﻿namespace DependencyInjection;
 
-// Register Singleton
-// Register Transient
-// Register Scoped
-
-// Let tester be created as transient
-
-
-// Configure the HTTP request pipeline.
-
-
-
-
-
-class DILifetimeTesterResult
+class DiLifetimeTesterResult
 {
-    public int singleton { get; set; }
-    public int scoped { get; set; }
-    public int transient { get; set; }
+    public int Singleton { get; set; }
+    public int Scoped { get; set; }
+    public int Transient { get; set; }
 }

@@ -5,13 +5,13 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SOLID", "SOLID\SOLID.csproj", "{AAF2BD27-D4B3-4A91-B478-9DA7F55E32E0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DI", "DI\DI.csproj", "{708E142E-2339-40C8-96B0-D2B06ACDB9F5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DependencyInjection", "DI\DependencyInjection.csproj", "{708E142E-2339-40C8-96B0-D2B06ACDB9F5}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesignPatterns", "DesignPatterns\DesignPatterns.csproj", "{C021FEB5-3743-4BCC-89C9-061D25548CAB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TPL", "TPL\TPL.csproj", "{24A65FEE-8965-43F2-A21F-FF16C1AC7536}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TPL", "TPL\TPL.csproj", "{24A65FEE-8965-43F2-A21F-FF16C1AC7536}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReactiveX", "ReactiveX\ReactiveX.csproj", "{371FB881-5138-42D9-AD68-16791BD12B7D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReactiveX", "ReactiveX\ReactiveX.csproj", "{371FB881-5138-42D9-AD68-16791BD12B7D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -42,5 +42,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C734C72A-DD4D-446F-B042-EA031EE130F3}
 	EndGlobalSection
 EndGlobal
