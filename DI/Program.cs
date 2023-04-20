@@ -1,3 +1,5 @@
+using Microsoft.Extensions.DependencyInjection;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -27,21 +29,30 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 
-app.MapGet("/test", (ISingleton singleton, IScoped scoped, ITransient transient, IDILifetimeTester tester) =>
-{
-    var hashCodesFromTester = tester.GetHashCodes();
-    return new
-    {
-        singletonDescription = "These shall be same betwen requests too",
-        singletonFirst = singleton.GetHashCode(),
-        singletonSecond = hashCodesFromTester.singleton,
-        scopedDescription = "These shall be same within a request",
-        scopedFirst = scoped.GetHashCode(),
-        scopedSecond = hashCodesFromTester.scoped,
-        transientDescription = "These shall be different everytime even within a request",
-        transientFirst = transient.GetHashCode(),
-        transientSecond = hashCodesFromTester.transient,
-    };
-});
+app.MapGet("/test",
+    (ISingleton singleton,
+        IScoped scoped,
+        ITransient transient,
+        IDILifetimeTester tester,
+        HttpContext context,
+        ServiceProvider serviceProvider) =>
+            {
+                var hashCodesFromTester = tester.GetHashCodes();
+                return new
+                {
+                    singletonDescription = "These shall be same between requests too",
+                    singletonInjected = singleton.GetHashCode(),
+                    singletonFromTester = hashCodesFromTester.singleton,
+                    scopedDescription = "These shall be same within a request",
+                    scopedInjected = scoped.GetHashCode(),
+                    scopedFromTester = hashCodesFromTester.scoped,
+                    transientDescription = "These shall be different everytime even within a request",
+                    transientInjected = transient.GetHashCode(),
+                    transientFromTester = hashCodesFromTester.transient,
+                    transientFromServicesHttpContextServiceProvider = context.RequestServices.GetService<ITransient>(),
+                    transientFromServicesServiceProvider = serviceProvider.GetService<ITransient>()
+                    // These can be resolved from [FromServices] in method signature or ServiceProvider(not recommended) other than constructor injection
+                };
+            });
 
 app.Run();
