@@ -1,4 +1,4 @@
-﻿namespace SOLID._2.OCP.Violated
+﻿namespace DesignPrinciples.SOLID._2.OCP.Violated
 {
     public class Square : Rectangle
     {

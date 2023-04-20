@@ -15,7 +15,7 @@ builder.Services.AddTransient<ITransient, Transient>();
 builder.Services.AddScoped<IScoped, Scoped>();
 
 // Let tester be created as transient
-builder.Services.AddTransient<IDILifetimeTester, DILifetimeTester>();
+builder.Services.AddTransient<IDiLifetimeTester, DiLifetimeTester>();
 
 var app = builder.Build();
 

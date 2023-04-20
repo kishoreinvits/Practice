@@ -1,4 +1,4 @@
-﻿namespace SOLID.SRP.Valid
+﻿namespace DesignPrinciples.SOLID._1.SRP.Valid
 {
     public interface IRectanglePerimeterCalculator
     {
